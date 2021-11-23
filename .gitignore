@@ -1,0 +1,15 @@
+# created by virtualenv automatically
+
+.DS_Store
+Thumbs.db
+
+git_token
+
+*.[fF][iI][tT][sS]
+*.[fF][iI][tT]
+!NCG_6995.fits
+!NGC_7538*.fits
+
+*.[pP][nN][gG]
+*.[jJ][pP][gG]
+!M33.jpg
