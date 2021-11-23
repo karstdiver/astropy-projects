@@ -1,4 +1,6 @@
-%% FITS file plotter
+"""
+    FITS file plotter
+"""
 
 # requires
 # pip install astropy
@@ -140,7 +142,7 @@ def gui(title, cwd, image_dir):
     img_e.grid(column=20, row=1)
     img_e.focus_set()
 
-    # filename
+    # filename combobox selector
     fil_l_sv = tk.StringVar()
     fil_l = tk.Label(win, textvariable=fil_l_sv)
     fil_l_sv.set('Image File')
@@ -150,6 +152,7 @@ def gui(title, cwd, image_dir):
     fil_e_sv = tk.StringVar()
     fil_cb = ttk.Combobox(win,width=30, textvariable=fil_e_sv)
     fil_cb['values'] = files
+    fil_cb.current(0)
     fil_cb.grid(column=20, row=3)
 
     # generate histogram
