@@ -23,7 +23,8 @@ This project in not intended to replace more powerful tools in this class but as
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
-<!-- * [License](#license) -->
+* [License](#license)
+* [Copyright](#copyright)
 
 
 ## General Information
@@ -132,6 +133,9 @@ Created by [@karstdiver](https://www..../) - feel free to contact me!
 
 <!-- Optional -->
 ## License
-This project is open source and available under the [... License]().
+This project is open source and available under the MIT License.
+
+## Copyright
+Copyright (c) 2021 Karst Diver
 
 <!-- You don't have to include all sections - just the one's relevant to your project -->
