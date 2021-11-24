@@ -11,15 +11,17 @@
 """
 
 from astropy.io import fits
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.colors import LogNorm
 
 ##############################################################################
 # Set up matplotlib and use a nicer set of plot parameters
 import matplotlib.pyplot as plt
+from matplotlib.colors import LogNorm
 from astropy.visualization import astropy_mpl_style
 plt.style.use(astropy_mpl_style)
+
+import numpy as np
+import re
+
 
 ##############################################################################
 def get_fits_image_data(image_pathname, block=0):
@@ -53,7 +55,7 @@ def get_fits_image_data(image_pathname, block=0):
 
 
 ##############################################################################
-def plot_image(image_pathname, save=True):
+def plot_image_cb(image_pathname, save=True):
 
     """ plot and save image from FITS file """
 
@@ -70,8 +72,8 @@ def plot_image(image_pathname, save=True):
 
     try:
         #plt.imshow(image_data, cmap='gray', norm=LogNorm())
-        plt.imshow(image_data, cmap='Reds')
-        #plt.imshow(image_data, cmap='gray')
+        #plt.imshow(image_data, cmap='Reds')
+        plt.imshow(image_data, cmap='gray')
     except:
         print("ERROR: Unable to plot image (plt.imshow()). Is it a 3D RGB fits?")
         return
@@ -90,7 +92,7 @@ def plot_image(image_pathname, save=True):
 
 
 ##############################################################################
-def plot_histogram(image_pathname, save=True):
+def plot_histogram_cb(image_pathname, save=True):
 
     """ plot and save histogram from FITS file """
 
@@ -106,7 +108,7 @@ def plot_histogram(image_pathname, save=True):
         print("ERROR: Unable to plot histogram (plt.hist())")
         return
 
-    plt.title(f"FLATTENED HISTOGRAM \n {image_pathname}")
+    plt.title(f"FLATTENED HISTOGRAM \n {image_pathname} \n Block Image Shape: {image_data.shape} \n Color Min: {np.min(image_data)}  Max: {np.max(image_data)}")
     plt.xlabel("Image Data Values (color)")
     plt.ylabel("Number of Values (intensity)")
     plt.grid(False)

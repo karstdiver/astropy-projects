@@ -24,7 +24,11 @@ image_dir = 'images'
 
 ##############################################################################
 # run user control panel
-gui.control_panel_gui(title, cwd, image_dir)
+print("INFO: Running gui...")
+try:
+    gui.control_panel_gui(title, cwd, image_dir)
+except:
+    print("ERROR: Unable to run gui")
 
-
+print("INFO: Exiting")
 exit()
