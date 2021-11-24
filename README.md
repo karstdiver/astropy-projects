@@ -10,20 +10,6 @@ Uses gui control panel to select and process FITS and JPG files.
 
 This project in not intended to replace more powerful tools in this class but as a learning aid. See [DS9](https://mac.softpedia.com/get/Math-Scientific/SAOImage-DS9.shtml).
 
-Usage:
-> cd .../astropy_fits_processing  # change to program directory
-
-> python main.py  # start gui control panel
-
-Note:
-This program uses the "images" directory for all image files.
-
-Files:
-main.py - main program
-gui.py - control panel
-fits_plotters.py - fits file plotters as callbacks
-rgb_plotters.py - jpg file plotters as callbacks
-
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
@@ -31,6 +17,8 @@ rgb_plotters.py - jpg file plotters as callbacks
 * [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Usage](#usage)
+* [Notes](#notes)
+* [Source Files](#source-files)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
@@ -73,7 +61,6 @@ List the ready features here:
 ![Example screenshot](./img/screenshot.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
-
 ## Setup
 <!-- What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
@@ -93,14 +80,24 @@ Provide various use cases and code examples here.
 
 1. Open clone in atom.
 2. Select main.py.
-3. Run.  Use cmd-i in atom
+3. Run.  Use cmd-i in atom or "> python main.py".
 4. Check the directory paths in the GUI.
 5. Use GUI to select image files and operations.
 6. Look for INFO: and ERROR: messages in terminal.
 
+## Notes
+- This program uses the "images" directory for all image files.
+
+## Source Files
+- main.py - main program
+- gui.py - control panel
+- fits_plotters.py - fits file plotters as callbacks
+- rgb_plotters.py - jpg file plotters as callbacks
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+Project is: *_in progress_* (/ _complete_ / _no longer being worked on_).
+
+<!--If you are no longer working on it, provide reasons why. -->
 
 
 ## Room for Improvement
@@ -116,6 +113,7 @@ To do:
 
 Improvement:
 - GUI is clunky
+- Hard to select image files not in images directory
 
 To do:
 - Fix directory text box change doesn't update files combobox
