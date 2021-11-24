@@ -14,13 +14,14 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
 import re
 import os
+import glob
 import tkinter as tk
 from tkinter import ttk
 
 # global variables
 title = "Plot FITS using Astropy"
 cwd = os.getcwd()
-image_dir = '/images/'
+image_dir = 'images'
 
 
 def get_fits_image_data(image_pathname, block=0):
@@ -52,6 +53,8 @@ def get_fits_image_data(image_pathname, block=0):
 
     return image_data
 
+
+
 def plot_image(image_pathname, save=True):
 
     """ plot and save image from FITS file """
@@ -67,9 +70,14 @@ def plot_image(image_pathname, save=True):
         print("ERROR: No image data found")
         return
 
-    #plt.imshow(image_data, cmap='gray', norm=LogNorm())
-    #plt.imshow(image_data, cmap='Reds')
-    plt.imshow(image_data, cmap='gray')
+    try:
+        #plt.imshow(image_data, cmap='gray', norm=LogNorm())
+        plt.imshow(image_data, cmap='Reds')
+        #plt.imshow(image_data, cmap='gray')
+    except:
+        print("ERROR: Unable to plot image (plt.imshow()). Is it a 3D RGB fits?")
+        return
+
     plt.colorbar()
     plt.show()
 
@@ -82,6 +90,9 @@ def plot_image(image_pathname, save=True):
     else:
         print("INFO: not saving plot file")
 
+
+
+
 def plot_histogram(image_pathname, save=True):
 
     """ plot and save histogram from FITS file """
@@ -92,12 +103,16 @@ def plot_histogram(image_pathname, save=True):
         print("ERROR: No image data found")
         return
 
-    histogram = plt.hist(image_data.flatten(), bins='auto')
+    try:
+        histogram = plt.hist(image_data.flatten(), bins='auto')
+    except:
+        print("ERROR: Unable to plot histogram (plt.hist())")
+        return
 
     plt.title(f"FLATTENED HISTOGRAM \n {image_pathname}")
     plt.xlabel("Image Data Values (color)")
     plt.ylabel("Number of Values (intensity)")
-    plt.grid(True)
+    plt.grid(False)
 
     plt.show()
 
@@ -109,6 +124,9 @@ def plot_histogram(image_pathname, save=True):
         plt.savefig(hist_pathname)
     else:
         print("INFO: not saving historgram file")
+
+
+
 
 def gui(title, cwd, image_dir):
 
@@ -148,21 +166,29 @@ def gui(title, cwd, image_dir):
     fil_l_sv.set('Image File')
     fil_l.grid(column=0,row=3)
 
-    files = os.listdir(cwd_e.get() + img_e.get())
+    # get list of fits files in image directory
+    image_dir = cwd_e.get() + '/' + img_e.get() + 'lll'
+    files = os.listdir(image_dir)
+    # using re + search() to get string with substring
+    fits_files = [file for file in files if re.search('.[fF][iI][tT][sS]$', file)]
     fil_e_sv = tk.StringVar()
     fil_cb = ttk.Combobox(win,width=30, textvariable=fil_e_sv)
-    fil_cb['values'] = files
+    fil_cb['values'] = fits_files
     fil_cb.current(0)
     fil_cb.grid(column=20, row=3)
 
     # generate histogram
     hist_b = tk.Button(win, text='Generate Histogram',
-             command=lambda: plot_histogram(cwd_e.get() + img_e.get() + fil_cb.get()))
+             command=lambda: plot_histogram(cwd_e.get() + '/' +
+                                            img_e.get() + '/' +
+                                            fil_cb.get()))
     hist_b.grid(column=0, row=4)
 
     # generate image
     img_b = tk.Button(win, text='Show Image',
-             command=lambda: plot_image(cwd_e.get() + img_e.get() + fil_cb.get()))
+             command=lambda: plot_image(cwd_e.get() + '/' +
+                                        img_e.get() + '/' +
+                                        fil_cb.get()))
     img_b.grid(column=0, row=5)
 
     # cause program exit
@@ -172,7 +198,7 @@ def gui(title, cwd, image_dir):
 
     win.mainloop()
 
-
+# run user control panel
 gui(title, cwd, image_dir)
 
 exit()
