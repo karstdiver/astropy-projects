@@ -1,7 +1,7 @@
 FITS utilities using anaconda and astropy
 
 Purpose:
-Use gui control panel to select and process FITS and JPG files.
+Uses gui control panel to select and process FITS and JPG files.
 
 Usage:
 > python main.py
