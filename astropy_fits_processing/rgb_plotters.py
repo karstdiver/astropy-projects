@@ -125,6 +125,7 @@ def split_jpg_cb(image_pathname, save=True):
         return
 
     # print interesting info about files
+    print("INFO: Got numpy arrays")
     print(f"red data shape:   {r_data.shape}")
     print(f"blue data shape:  {b_data.shape}")
     print(f"green data shape: {g_data.shape}")
@@ -141,6 +142,7 @@ def split_jpg_cb(image_pathname, save=True):
         return
 
     # print interesting info about data
+    print("INFO: resized numpy arrays")
     print(f"red data reshape:   {r_data.shape}")
     print(f"blue data reshape:  {b_data.shape}")
     print(f"green data reshape: {g_data.shape}")
