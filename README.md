@@ -1,11 +1,14 @@
 # Project Name
-
+<!--
 > Outline a brief description of your project.
 > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+
 FITS utilities using anaconda and astropy
 
 Purpose:
 Uses gui control panel to select and process FITS and JPG files.
+
+This project in not intended to replace more powerful tools in this class but as a learning aid. See [DS9](https://mac.softpedia.com/get/Math-Scientific/SAOImage-DS9.shtml).
 
 Usage:
 > cd .../astropy_fits_processing  # change to program directory
@@ -79,6 +82,9 @@ Proceed to describe how to install / setup one's local environment / get started
 2. Install atom with, at least, script
 3. Clone repository for project source files and images directory.
 
+Use the detailed installation instructions at [Astropy Installation](https://docs.astropy.org/en/stable/install.html).
+
+
 ## Usage
 <!-- How does one go about using it?
 Provide various use cases and code examples here.
@@ -118,7 +124,8 @@ To do:
 ## Acknowledgements
 <!-- Give credit here. -->
 - This project was inspired by not wanting to spend $ on a real post-processing tool and learning how to post-process.
-- This project was based on [this tutorial](https://www.example.com).
+- This project was based on [this tutorial]
+(https://whitaker.physics.uconn.edu/wp-content/uploads/sites/2038/2017/02/PythonTutorial_Metivier.pdf).
 - Many thanks to those Open Sourcers and individual contributors for tools and examples.
 
 
