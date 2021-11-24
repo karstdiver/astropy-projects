@@ -5,6 +5,8 @@ Thumbs.db
 
 git_token
 
+__pycache__
+
 *.[fF][iI][tT][sS]
 *.[fF][iI][tT]
 !NCG_6995.fits
