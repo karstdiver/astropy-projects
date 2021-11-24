@@ -6,7 +6,7 @@
 FITS utilities using anaconda and astropy
 
 Purpose:
-Uses gui control panel to select and process FITS and JPG files.
+Uses simple gui control panel to select and process FITS and JPG files.
 
 This project in not intended to replace more powerful tools in this class but as a learning aid. See [DS9](https://mac.softpedia.com/get/Math-Scientific/SAOImage-DS9.shtml).
 
