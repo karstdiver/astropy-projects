@@ -4,6 +4,7 @@ Purpose:
 Uses gui control panel to select and process FITS and JPG files.
 
 Usage:
+> cd .../astropy_fits_processing
 > python main.py
 
 Note:
