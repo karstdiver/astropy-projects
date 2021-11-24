@@ -4,7 +4,7 @@ Purpose:
 Use gui control panel to select and process FITS and JPG files.
 
 Usage:
-> > python main.py
+> python main.py
 
 Files:
 main.py - main program
