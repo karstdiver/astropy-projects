@@ -28,10 +28,10 @@ This project in not intended to replace more powerful tools in this class but as
 
 
 ## General Information
-- A user interactive program intended to allow exploration of astrophotography FITS files.
-- The overal goal is to have a custom FITS post-processing tool usable in the field.
-- Q: What problem does it (intend to) solve? A: Provide visual and transformed data about FITS images for debugging/learning FITS post-processing.
-- Q: What is the purpose of your project? A:  An expandable tool useful for prost-processing FITS images in the field. Just add more gui and functional callbacks.
+- Q: What is it? A: User interactive program intended to allow exploration of astrophotography FITS files.
+- Q: What is the goal? A: The overall goal is to have a custom FITS post-processing tool usable in the field.
+- Q: What problem does it (intend to) solve? A: Provide visual and transformed data about FITS images for debugging ~learning~ FITS post-processing.
+- Q: What is the purpose of your project? A:  An expandable tool useful for post-processing FITS images in the field. Just add more gui and functional callbacks.
 - Q: Why did you undertake it? A:  I want to see colorful images in the field and have something to do during long exposures.
 
 ## Technologies Used
@@ -41,7 +41,7 @@ This project in not intended to replace more powerful tools in this class but as
 - atom with script - editor
 
 ### Required
-- anaconda - python environment with packages installed
+- anaconda - python environment with packages installed (optional)
 - astropy - astrophotography library
 - tkinter - GUI
 - matplotlib - MATLAB-like plotters
@@ -87,7 +87,7 @@ Provide various use cases and code examples here.
 6. Look for INFO: and ERROR: messages in terminal.
 
 ## Notes
-- This program uses the "images" directory for all image files.
+- This program uses the "images" directory for image files (or tries to).
 
 ## Source Files
 - main.py - main program
@@ -114,6 +114,7 @@ To do:
 Improvement:
 - GUI is clunky
 - Hard to select image files not in images directory
+- Add more color processing
 
 To do:
 - Fix directory text box change doesn't update files combobox
