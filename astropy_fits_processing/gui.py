@@ -67,6 +67,7 @@ def control_panel_gui(title, cwd, image_dir):
     files = os.listdir(image_dir)
     # using re + search() to get string with substring
     fits_files = [file for file in files if re.search('.[fF][iI][tT][sS]$', file)]
+    fits_files.sort()
     fits_e_sv = tk.StringVar()
     fits_cb = ttk.Combobox(win,width=30, textvariable=fits_e_sv)
     fits_cb['values'] = fits_files
@@ -109,6 +110,7 @@ def control_panel_gui(title, cwd, image_dir):
     files = os.listdir(image_dir)
     # using re + search() to get string with substring
     jpg_files = [file for file in files if re.search('.[jJ][pP][eE]*[gG]$', file)]
+    jpg_files.sort()
     jpg_e_sv = tk.StringVar()
     jpg_cb = ttk.Combobox(win,width=30, textvariable=jpg_e_sv)
     jpg_cb['values'] = jpg_files
