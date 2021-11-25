@@ -20,11 +20,8 @@ plt.style.use(astropy_mpl_style)
 
 import numpy as np
 from PIL import Image  # for jpg tools
-
-
-import numpy as np
-from PIL import Image
-from astropy.io import fits
+import re
+#from pprint import pprint # for printing headers
 
 ##############################################################################
 # Set up matplotlib and use a nicer set of plot parameters
@@ -152,26 +149,83 @@ def split_jpg_cb(image_pathname, save=True):
     # Write out the channels as separate FITS images.
     # Add and visualize header info
 
-    red = fits.PrimaryHDU(data=r_data)
-    red.header['LATOBS'] = "32:11:56" # add spurious header info
-    red.header['LONGOBS'] = "110:56"
-    red.header['COMMENT'] = f"red image file: {image_pathname}"
-    #red.writeto(f"python/astropy/images/red.fits")
+    color = 'red'
+    h = fits.PrimaryHDU(data=r_data)
+    h.header['LATOBS'] = "32:11:56" # add spurious header info
+    h.header['LONGOBS'] = "110:56"
+    h.header['COMMENT'] = f"{color} image file: {image_pathname}"
 
-    green = fits.PrimaryHDU(data=g_data)
-    green.header['LATOBS'] = "32:11:56"
-    green.header['LONGOBS'] = "110:56"
-    green.header['COMMENT'] = f"green image file: {image_pathname}"
-    #green.writeto(f"python/astropy/images/green.fits")
+    print(f"INFO: {color} header:")
+    from pprint import pprint # for printing headers
+    pprint(h.header)
 
-    blue = fits.PrimaryHDU(data=b_data)
-    blue.header['LATOBS'] = "32:11:56"
-    blue.header['LONGOBS'] = "110:56"
-    blue.header['COMMENT'] = f"blue image file: {image_pathname}"
-    #blue.writeto(f"python/astropy/images/blue.fits")
+    # save fits file
+    filename = image_pathname.split("/")[-1]
+    fits_pathname = re.compile(r"\..*$").sub(f"-{color}.fits", image_pathname)
+    if save:
+        try:
+            h.writeto(f"{fits_pathname}")
+        except:
+            print(f"ERROR: Unable to save {color} FITS file (h.writeto({fits_pathname}))")
+            #return
+        else:
+            print(f"INFO: Saving FITS file: {fits_pathname}")
 
-    from pprint import pprint
-    pprint(red.header)
+    else:
+        print("INFO: Not saving FITS file. Save not selected.")
+
+    color = 'green'
+    h = fits.PrimaryHDU(data=g_data)
+    h.header['LATOBS'] = "32:11:56" # add spurious header info
+    h.header['LONGOBS'] = "110:56"
+    h.header['COMMENT'] = f"{color} image file: {image_pathname}"
+
+    print(f"INFO: {color} header:")
+    pprint(h.header)
+
+    # save fits file
+    filename = image_pathname.split("/")[-1]
+    fits_pathname = re.compile(r"\..*$").sub(f"-{color}.fits", image_pathname)
+    if save:
+        try:
+            h.writeto(f"{fits_pathname}")
+        except:
+            print(f"ERROR: Unable to save {color} FITS file (h.writeto({fits_pathname}))")
+            #return
+        else:
+            print(f"INFO: Saving FITS file: {fits_pathname}")
+
+    else:
+        print("INFO: Not saving FITS file. Save not selected.")
+
+
+    color = 'blue'
+    h = fits.PrimaryHDU(data=b_data)
+    h.header['LATOBS'] = "32:11:56" # add spurious header info
+    h.header['LONGOBS'] = "110:56"
+    h.header['COMMENT'] = f"{color} image file: {image_pathname}"
+
+    print(f"INFO: {color} header:")
+    pprint(h.header)
+
+    # save fits file
+    filename = image_pathname.split("/")[-1]
+    fits_pathname = re.compile(r"\..*$").sub(f"-{color}.fits", image_pathname)
+    if save:
+        try:
+            h.writeto(f"{fits_pathname}")
+        except:
+            print(f"ERROR: Unable to save {color} FITS file (h.writeto({fits_pathname}))")
+            #return
+        else:
+            print(f"INFO: Saving FITS file: {fits_pathname}")
+
+    else:
+        print("INFO: Not saving FITS file. Save not selected.")
+
+
+#    from pprint import pprint
+#    pprint(red.header)
 
 ##############################################################################
 # Delete the files created

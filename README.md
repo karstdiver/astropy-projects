@@ -3,7 +3,7 @@
 > Outline a brief description of your project.
 > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
-FITS utilities using anaconda and astropy
+Fexible Image Transport System [FITS](https://fits.gsfc.nasa.gov/fits_primer.html) utilities using anaconda, astropy, tkinter.
 
 Purpose:
 Uses simple gui control panel to select and process FITS and JPG files.

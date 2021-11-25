@@ -81,14 +81,20 @@ def plot_image_cb(image_pathname, save=True):
     plt.colorbar()
     plt.show()
 
-    # save histogram file
+    # save image file
     filename = image_pathname.split("/")[-1]
     plot_pathname = re.compile(r"\..*$").sub('-plot.png', image_pathname)
     if save:
-        print(f"INFO: saving plot file: {plot_pathname}")
-        plt.savefig(plot_pathname)
+        try:
+            plt.savefig(plot_pathname)
+        except:
+            print("ERROR: Unable to save plot file (plt.savefig())")
+            return
+        else:
+            print(f"INFO: Saving plot file: {plot_pathname}")
+
     else:
-        print("INFO: not saving plot file")
+        print("INFO: Not saving plot file. Save not selected.")
 
 
 ##############################################################################
@@ -117,9 +123,15 @@ def plot_histogram_cb(image_pathname, save=True):
 
     # save histogram file
     filename = image_pathname.split("/")[-1]
-    hist_pathname = re.compile(r"\..*$").sub('-hist.png', image_pathname)
+    plot_pathname = re.compile(r"\..*$").sub('-plot.png', image_pathname)
     if save:
-        print(f"INFO: saving historgram file: {hist_pathname}")
-        plt.savefig(hist_pathname)
+        try:
+            plt.savefig(plot_pathname)
+        except:
+            print("ERROR: Unable to save plot file (plt.savefig())")
+            return
+        else:
+            print(f"INFO: Saving plot file: {plot_pathname}")
+
     else:
-        print("INFO: not saving historgram file")
+        print("INFO: Not saving plot file. Save not selected.")
