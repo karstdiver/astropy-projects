@@ -30,7 +30,7 @@ This project in not intended to replace more powerful tools in this class but as
 ## General Information
 - Q: What is it? A: User interactive program intended to allow exploration of astrophotography FITS files.
 - Q: What is the goal? A: The overall goal is to have a custom FITS post-processing tool usable in the field.
-- Q: What problem does it (intend to) solve? A: Provide visual and transformed data about FITS images for debugging ~learning~ FITS post-processing.
+- Q: What problem does it (intend to) solve? A: Provide visual and transformed data about FITS images for debugging and _learning_ FITS post-processing.
 - Q: What is the purpose of your project? A:  An expandable tool useful for post-processing FITS images in the field. Just add more gui and functional callbacks.
 - Q: Why did you undertake it? A:  I want to see colorful images in the field and have something to do during long exposures.
 
